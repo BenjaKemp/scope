@@ -1,0 +1,90 @@
+
+@import 'styles/_colors.scss'; 
+
+body {
+	text-align: center;
+	font-family: Open Sans;
+	background-color: $marioRed;
+	margin: 0;
+	padding: 0;
+}
+
+.landing_background {
+	margin-top: 3px;
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 5px;
+    border: black solid;
+    height: 100%;
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  margin: 5vmin;
+  font-variant: small-caps;
+}
+.podium li {
+  position: relative;
+  list-style: none;
+  background: linear-gradient(to right, black, 30%, silver 40%, 55%, black);
+  flex: 1;
+  padding: 1rem;
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: calc(0.8rem + 2vw);
+  text-shadow:
+    -1px -1px black,
+    +1px -1px black,
+    +1px +1px black,
+    -1px +1px black,
+    -1px -1px 1px lightBlue,
+    +1px -1px 1px lightBlue,
+    +1px +1px 1px lightBlue,
+    -1px +1px 1px lightBlue;
+  border-top: solid 0.7rem;
+  border-bottom: solid 0.2rem rgba(0,0,0,0.7);
+  border-radius: 50% / 0.5rem 0.5rem 1rem 1rem;
+}
+.podium li::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  border-bottom: solid 0.7rem;
+  border-radius: 0 0 50% 50% / 0 0 1rem 1rem;
+}
+.podium li:first-child {
+  color: #fc3;
+  height: 45vh;
+  min-height: 6em;
+  order: 2;
+}
+.podium li:nth-child(2) {
+  color: #ccd;
+  height: 30vh;
+  min-height: 4em;
+  order: 1;
+}
+.podium li:nth-child(3) {
+  color: #b62;
+  height: 15vh;
+  min-height: 2em;
+  order: 3;
+}
+
+@media (max-width: 24em) {
+  .podium {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .podium li:nth-child(n) {
+    order: 0;
+    height: 4em;
+    min-height: 0;
+    margin: 0.5rem 0;
+  }
+}

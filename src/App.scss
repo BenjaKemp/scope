@@ -1,0 +1,40 @@
+
+@import 'styles/_colors.scss'; 
+@import 'styles/Dashboard.scss'; 
+@import 'styles/Landing.scss'; 
+@import 'styles/Player.scss'; 
+@import 'styles/CenterPlayer.scss'; 
+
+body{
+	font-family: courier;
+	color: black;
+}
+
+@font-face {
+  font-family: mariokartfont;
+  src: url('./fonts/@font-face/mariokartfont.woff2') format('woff2'),
+       url('./fonts/@font-face/mariokartfont.woff') format('woff');
+}
+
+.container_wrapper {
+
+    height: 50rem;
+    overflow: auto;
+
+}
+
+.jumbotron_app {
+	font-family: mariokartfont;
+    background-color: $marioRed;
+    height: 3rem;
+    width: 100%;
+    margin:0;
+    padding:0;
+    border: black;
+    border-bottom: solid;
+
+}
+
+
+
+

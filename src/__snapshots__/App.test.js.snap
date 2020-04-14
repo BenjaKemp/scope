@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterPlayer snapshot renders 1`] = `
+<div
+  className="card_wrapper card"
+>
+  <img
+    className="card-img-top"
+    src="Drybones.png"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      Dry bones
+    </div>
+    <a
+      href="/playerdetails/1a8a2b59-9b94-43ee-8831-76cc15be81cc"
+      onClick={[Function]}
+    >
+      <button
+        className="player_button btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+        Details
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Counter snapshot renders 1`] = `
+<div
+  className="card_wrapper card"
+>
+  <img
+    className="card-img-top"
+    src="Drybones.png"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      Dry bones
+    </div>
+    <a
+      href="/playerdetails/1a8a2b59-9b94-43ee-8831-76cc15be81cc"
+      onClick={[Function]}
+    >
+      <button
+        className="player_button btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+        Details
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Player snapshot renders 1`] = `
+<div
+  className="card_wrapper card"
+>
+  <img
+    className="card-img-top"
+    src="Drybones.png"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      Dry bones
+    </div>
+    <a
+      href="/playerdetails/1a8a2b59-9b94-43ee-8831-76cc15be81cc"
+      onClick={[Function]}
+    >
+      <button
+        className="player_button btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+        Details
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Player snapshot renders 2`] = `
+<div
+  className="card_wrapper card"
+>
+  <img
+    className="card-img-top"
+    src="Drybones.png"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+      Dry bones
+    </div>
+    <a
+      href="/playerdetails/1a8a2b59-9b94-43ee-8831-76cc15be81cc"
+      onClick={[Function]}
+    >
+      <button
+        className="player_button btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+        Details
+      </button>
+    </a>
+  </div>
+</div>
+`;

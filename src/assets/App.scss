@@ -1,0 +1,26 @@
+
+@mixin button-base() {
+  @include typography(button);
+  @include ripple-surface;
+  @include ripple-radius-bounded;
+
+  display: inline-flex;
+  position: relative;
+  height: $button-height;
+  border: none;
+  vertical-align: middle;
+
+  &:hover { cursor: pointer; }
+
+  &:disabled {
+    color: $mdc-button-disabled-ink-color;
+    cursor: default;
+    pointer-events: none;
+  }
+  @mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+      background: {
+          image: url($imgpath);
+          position: $position;
+          repeat: $repeat;
+      }
+  }

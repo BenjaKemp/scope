@@ -1,0 +1,24 @@
+
+.race_rankings_column{
+    overflow: auto;
+        height: 100%;
+}
+
+.card_wrapper {
+	border-radius:5%;
+	background-color:  white;
+	border: black;
+	border-style: solid;
+	margin-top: 2px;
+
+}
+
+.player_button{
+	background-color: $marioBlue; /* Green */
+	border: none;
+	text-align: center;
+	display: inline-block;
+	width:80%;
+	font-size: calc(0.7rem + 0.3vw);
+
+}
