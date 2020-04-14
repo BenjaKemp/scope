@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { browserHistory } from 'react-router-dom';
 
-
  
 class NewGame extends React.Component {
 
@@ -22,9 +21,7 @@ class NewGame extends React.Component {
   };
 
   componentDidMount() {
-    const racers =  this.props.players.map(player => {
-      return {value: player.name, label: player.name }
-    })
+    const racers =  this.props.players.map(player => ({value: player.name, label: player.name }))
     this.setState({...this.state.racers, racers})
   };
 
@@ -37,9 +34,9 @@ class NewGame extends React.Component {
 
   formUpdate = (e) => {
 
-    let id = e.target.id.slice(-1);
-    let name = e.target.value
-    let newPodium = this.state.podium;
+    const id = e.target.id.slice(-1);
+    const name = e.target.value
+    const newPodium = this.state.podium;
     newPodium[id] = name;
     this.setState({...this.state.podium, podium: newPodium });
   };
@@ -47,8 +44,8 @@ class NewGame extends React.Component {
   submitForm = (e) =>  {
 
     e.preventDefault()
-    let values = Object.values(this.state.podium)
-    let hasDuplicate = values.some((val, i) => values.indexOf(val) !== i);
+    const values = Object.values(this.state.podium)
+    const hasDuplicate = values.some((val, i) => values.indexOf(val) !== i);
 
     if(values.length !== 4 ||  hasDuplicate ){
       alert('please choose 4 unique racers!!!! ')
@@ -70,103 +67,103 @@ class NewGame extends React.Component {
     }
  
     return (
-      <div>
-         <Form>
-            <Form.Group controlId="ControlSelect1">
-               <Form.Label>First Position</Form.Label>
-               <Form.Control
-                  as="select"
-                  onChange={this.formUpdate}
-                  defaultValue={null}
-                  >
+        <div>
+            <Form>
+                <Form.Group controlId="ControlSelect1">
+                <Form.Label>First Position</Form.Label>
+                <Form.Control
+                as="select"
+                onChange={this.formUpdate}
+                defaultValue={null}
+                >
                   <option>
-                     enter first place.....
+                  enter first place.....
                   </option>
                   {this.state.racers.map((el,i) => {
-                  let values = Object.values(this.state.podium);
-                  let isDisabled = values.includes(el.value) ? true : false
-                  return (
+                    const values = Object.values(this.state.podium);
+                    const isDisabled = values.includes(el.value) ? true : false
+                    return (
                     <option key={i} disabled={isDisabled}  value={el.value}>{el.value} </option>
                     )
                   })
                 }
-               </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="ControlSelect2">
-               <Form.Label>Second Position</Form.Label>
-               <Form.Control
-                  as="select"
-                  onChange={this.formUpdate}
-                  defaultValue={null}
-                   >
-                  <option>
-                     enter second place.....
-                  </option>
-                  {this.state.racers.map((el,i) => {
-                  let values = Object.values(this.state.podium);
-                  let isDisabled = values.includes(el.value) ? true : false
-                  return (
+              </Form.Control>
+              </Form.Group>
+          <Form.Group controlId="ControlSelect2">
+            <Form.Label>Second Position</Form.Label>
+            <Form.Control
+            as="select"
+            onChange={this.formUpdate}
+            defaultValue={null}
+            >
+              <option>
+              enter second place.....
+              </option>
+              {this.state.racers.map((el,i) => {
+                const values = Object.values(this.state.podium);
+                const isDisabled = values.includes(el.value) ? true : false
+                return (
                   <option  key={i}  disabled={isDisabled}  value={el.value}>{el.value}</option>
-                  )
-                  }
-                  )}
-               </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="ControlSelect3">
-               <Form.Label>Third Position</Form.Label>
-               <Form.Control 
-                  as="select"
-                  onChange={this.formUpdate}
-                  defaultValue={null}
-                   >
-                  <option>
-                     enter third place.....
-                  </option>
-                  {this.state.racers.map((el,i) => {
-                  let values = Object.values(this.state.podium);
-                  let isDisabled = values.includes(el.value) ? true : false
-                  return (
+                )
+              }
+            )}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="ControlSelect3">
+            <Form.Label>Third Position</Form.Label>
+            <Form.Control 
+            as="select"
+            onChange={this.formUpdate}
+            defaultValue={null}
+            >
+              <option>
+              enter third place.....
+              </option>
+              {this.state.racers.map((el,i) => {
+                let values = Object.values(this.state.podium);
+                let isDisabled = values.includes(el.value) ? true : false
+                return (
                   <option  key={i}  disabled={isDisabled}  value={el.value}>{el.value}</option>
-                  )
-                  })}
-               </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="ControlSelect4">
-               <Form.Label>Fourth Position</Form.Label>
-               <Form.Control
-                  as="select"
-                  onChange={this.formUpdate}
-                  defaultValue={null}>
-                  <option >
-                     enter last..... 
-                  </option>
-                  {this.state.racers.map((el,i) => {
-                  let values = Object.values(this.state.podium);
-                  let isDisabled = values.includes(el.value) ? true : false
-                  return (
+                )
+              })}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="ControlSelect4">
+            <Form.Label>Fourth Position</Form.Label>
+            <Form.Control
+            as="select"
+            onChange={this.formUpdate}
+            defaultValue={null}>
+              <option >
+                enter last..... 
+              </option>
+              {this.state.racers.map((el,i) => {
+                const values = Object.values(this.state.podium);
+                const isDisabled = values.includes(el.value) ? true : false
+                return (
                   <option  key={i}  disabled={isDisabled}  value={el.value}>{el.value}</option>
-                  )
-                  })}
-               </Form.Control>
-            </Form.Group>
-            <button onClick={this.submitForm} className="btn btn-default">Submit</button>
-         </Form>
-         <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-               <Modal.Title>All Races</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-               New Game Added to DataBase
-            </Modal.Body>
-            <Modal.Footer>
-               <Button variant="secondary" onClick={this.handleClose}>
-               Close
-               </Button>
-            </Modal.Footer>
-         </Modal>
-      </div>
-    );
-    }
+                )
+              })}
+            </Form.Control>
+          </Form.Group>
+          <button onClick={this.submitForm} className="btn btn-default">Submit</button>
+        </Form>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>All Races</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            New Game Added to DataBase
+          </Modal.Body>
+          <Modal.Footer>
+          <Button variant="secondary" onClick={this.handleClose}>
+          Close
+          </Button>
+          </Modal.Footer>
+        </Modal>
+        </div>
+        );
+        }
 }
 
 export default NewGame;

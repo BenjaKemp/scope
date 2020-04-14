@@ -23,7 +23,6 @@ const EloRating = require('elo-rating');
 const io = require("socket.io-client");
 const ioClient = io.connect("http://localhost:8000");
 
- 
 
 export default class App extends React.Component {
   constructor(props) {

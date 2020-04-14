@@ -2,12 +2,8 @@ const axios = require('axios');
 
 const callMatchesApi = async () => {
 
-	console.log('firing')
-
 	const res = await axios.get('http://localhost:3000/matches');
-
 	const { data } = await res;
-
 	return data;
 }
 

@@ -17,6 +17,4 @@ const Player  =  ({key,  player})  => {
 		</Card>
 		)
 }
-
-
 export default Player;

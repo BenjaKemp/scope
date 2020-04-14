@@ -5,9 +5,9 @@ import Container from 'react-bootstrap/Container';
 
 const Landing = ({players, races}) => {
 
-	let individualBattles = players.reduce( (total, currentValue) => total + currentValue.eloData.scorearray.length, 0)
-	let podium = players.slice(0,3);
-	let numberOfMatches = races.length;
+	const individualBattles = players.reduce( (total, currentValue) => total + currentValue.eloData.scorearray.length, 0)
+	const podium = players.slice(0,3);
+	const numberOfMatches = races.length;
 
 	return(
 		<Jumbotron className ="container-full-bg landing_background" fluid>

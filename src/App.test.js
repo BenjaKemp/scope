@@ -14,7 +14,6 @@ import races from './mocks/races.json'
 const playerObject = playerData[0]
 
 
-
 describe('call made to back end and data returned', () => {
   it('should load user data', () => {
     return backendApi.callMatchesApi()
