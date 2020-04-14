@@ -1,7 +1,5 @@
-import React from 'react';
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
+import React from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from "recharts";
 
 
 const Graph = ({player}) => {
@@ -15,7 +13,7 @@ const Graph = ({player}) => {
 	})
 
     return (
-    	<ResponsiveContainer width={'99%'} height={300}>
+    	<ResponsiveContainer width={"99%"} height={300}>
 			<LineChart
 			width={800}
 			height={300}

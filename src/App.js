@@ -1,16 +1,16 @@
-import React from 'react';
-import backendApi from './utils/api'
-import Player from './components/Player'
-import Landing from './components/Landing'
-import Dashboard from './components/Dashboard'
-import NewGame from './components/NewGame'
-import CenterPlayer from './components/CenterPlayer'
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Spinner from 'react-bootstrap/Spinner';
-import Row from 'react-bootstrap/Row';
-import { v4 as uuidv4 } from 'uuid';
+import React from "react";
+import backendApi from "./utils/api"
+import Player from "./components/Player"
+import Landing from "./components/Landing"
+import Dashboard from "./components/Dashboard"
+import NewGame from "./components/NewGame"
+import CenterPlayer from "./components/CenterPlayer"
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Spinner from "react-bootstrap/Spinner";
+import Row from "react-bootstrap/Row";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   BrowserRouter as Router,
@@ -28,21 +28,15 @@ const ioClient = io.connect("http://localhost:8000");
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {};
-
-    ioClient.on("updated", (msg) => {
-       console.info(msg)
-       this.refreshAllData()
-    });
   }
 
   componentDidMount() {
-    this.refreshAllData()
-    
-  }
-
-  refreshAllData(){
+  
+    ioClient.on("updated", (msg) => {
+       msg.id = uuidv4();
+       this.setState({ matches: [...this.state.matches, msg] })
+    });
 
     backendApi.callMatchesApi()
     .then(response => {
@@ -102,7 +96,7 @@ export default class App extends React.Component {
               ELOViewsObject[playerBehind]['scorearray'].push(loserPoints)
 
               ELOViewsObject[currentPlayer]['pointsscored'] = winnerPoints - ELOViewsObject[currentPlayer]['ELO']
-              ELOViewsObject[playerBehind]['pointsscored'] = loserPoints -ELOViewsObject[playerBehind]['ELO']
+              ELOViewsObject[playerBehind]['pointsscored'] = loserPoints - ELOViewsObject[playerBehind]['ELO']
 
               ELOViewsObject[currentPlayer]['ELO'] = winnerPoints
               ELOViewsObject[playerBehind]['ELO'] = loserPoints
@@ -128,12 +122,16 @@ export default class App extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    ioClient.close();
+  }
+
   renderPlayers(){
 
     let keys = Object.keys(this.state.statePlayer)
     return (
       <div >
-          {keys.map((el, i) =>  <Player player={this.state.statePlayer[el]} />)}
+          {keys.map((el, i) =>  <Player key={el.id} player={this.state.statePlayer[el]} />)}
       </div>
       )
   }
@@ -164,7 +162,7 @@ export default class App extends React.Component {
                     <Route exact path="/newgame">
                           <Col xs={9}><NewGame players={this.state.statePlayer} /></Col>
                     </Route>
-                    <Route exact path="/playerdetails/:id">
+                    <Route  path="/playerdetails/:id">
                           <Col xs={9}><CenterPlayer players={this.state.statePlayer} races={this.state.matches}/></Col>
                     </Route>
                 </Switch>

@@ -5,6 +5,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import backendApi from '../utils/api';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { browserHistory } from 'react-router-dom';
+
+
  
 class NewGame extends React.Component {
 
@@ -28,6 +31,7 @@ class NewGame extends React.Component {
 
   handleClose = () => {
     this.setState({...this.state.show, show: false});
+
   };
 
 

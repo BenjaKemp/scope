@@ -13,8 +13,9 @@ const Landing = ({players, races}) => {
 		<Jumbotron className ="container-full-bg landing_background" fluid>
 		  <Container>
 			  <h3 className="title">We've crunched the numbers on {numberOfMatches} seperate races</h3>
-			  <h3 className="title">comprising {individualBattles} individual battles</h3>
+			  <h3 className="title">comprised of {individualBattles} individual battles</h3>
 			  <h3 className="title">The column on the left shows racer positions in ascending order</h3>
+			  <h3 className="title">But the Winners Podium is placed below</h3>
 			  <ol className="podium">
 			    <li>{podium[0].name}</li>
 			    <li>{podium[1].name}</li>
