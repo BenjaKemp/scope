@@ -5,7 +5,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import backendApi from '../utils/api';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { browserHistory } from 'react-router-dom';
 
  
 class NewGame extends React.Component {
@@ -25,12 +24,10 @@ class NewGame extends React.Component {
     this.setState({...this.state.racers, racers})
   };
 
-
   handleClose = () => {
     this.setState({...this.state.show, show: false});
-
+    window.location.href = "/";
   };
-
 
   formUpdate = (e) => {
 
@@ -120,8 +117,8 @@ class NewGame extends React.Component {
               enter third place.....
               </option>
               {this.state.racers.map((el,i) => {
-                let values = Object.values(this.state.podium);
-                let isDisabled = values.includes(el.value) ? true : false
+                const values = Object.values(this.state.podium);
+                const isDisabled = values.includes(el.value) ? true : false
                 return (
                   <option  key={i}  disabled={isDisabled}  value={el.value}>{el.value}</option>
                 )

@@ -26,7 +26,7 @@ if(!player){
 	return(
 		<Jumbotron className ="container-full-bg center_player_background" fluid>
 		  	<Container>
-			   	<h2>Name: {player.name} - Current Position: {pos}</h2>}
+			   	<h2>Name: {player.name} - Current Position: {pos}</h2>
 			    	<Table striped bordered hover>
 						<thead>
 							<tr>
