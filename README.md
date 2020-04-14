@@ -21,8 +21,8 @@ and then
 
     npm start
    
- you'll then be told that a server is running on the port 3000, and prompted to start te client on a different server. enter yes and continue
+ you'll then be told that a server is running on the port 3000, and prompted to start the client on a different server. enter yes and continue
  
-the client should run automatically!!
+the client should run automatically in your browser. If it doesn't, check the terminal see which port the client is running on
   
   
